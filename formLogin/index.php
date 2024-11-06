@@ -1,3 +1,12 @@
+<?php
+
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +19,7 @@
 
 <body>
     <div class="wrapper">
-        <form action="/index.php">
+        <form action="">
             <h1>LOGIN</h1>
             <div class="input-box">
                 <input type="text" placeholder="Username" required>
