@@ -8,7 +8,7 @@
     // Penanganan upload file
     $file_name = $_FILES['fotoKandidat']['name'];  // Nama file
     $temp_name = $_FILES['fotoKandidat']['tmp_name'];  // Lokasi file sementara
-    $folder = 'assets/img/' . $file_name;  // Lokasi tujuan file
+    $folder = 'img/' . $file_name;  // Lokasi tujuan file
 
     // Cek apakah file berhasil diupload sebelum menyimpan ke database
     if (move_uploaded_file($temp_name, $folder)) {
@@ -26,4 +26,4 @@
     } else {
         echo "Gagal mengupload file gambar.";
     }
-} ?>
+}?>

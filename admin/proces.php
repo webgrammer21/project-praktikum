@@ -12,13 +12,13 @@ if (isset($_POST["submit"])) {
 // Penanganan upload file
 $file_name = $_FILES['image']['name'];  // Nama file
 $temp_name = $_FILES['image']['tmp_name'];  // Lokasi file sementara
-$folder = 'assets/img/' . $file_name;  // Lokasi tujuan file
-
+$folder = 'assets/img/' . $file_name;  // Lokasi tujuan file   
+move_uploaded_file($temp_name, $folder);
 // Cek apakah file berhasil diupload sebelum menyimpan ke database
 if (move_uploaded_file($temp_name, $folder)) {
     // Jika file berhasil diupload, masukkan data ke database
     $query = "INSERT INTO menu (name, description, price, category_id, image) VALUES
-    ('$name', $harga, '$deskripsi', $kategori, '$file_name') ";
+    ('$name', $harga, '$deskripsi', '$kategori', '$file_name') ";
 
     if (mysqli_query($conn, $query)) {
         // Redirect jika sukses
@@ -30,4 +30,6 @@ if (move_uploaded_file($temp_name, $folder)) {
 } else {
     echo "Gagal mengupload file gambar.";
 }
-} ?>
+} 
+?>
+
