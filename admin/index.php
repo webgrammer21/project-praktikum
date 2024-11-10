@@ -6,6 +6,9 @@ $query= "SELECT * FROM menu";
 
 $result=mysqli_query($conn,$query);
 
+
+
+
 ?>
 
 <!doctype html>
@@ -42,7 +45,7 @@ $result=mysqli_query($conn,$query);
             <a class="nav-link" aria-current="page" href="tambah_menu.php">Tambah Menu</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">List Transaksi</a>
+            <a class="nav-link" href="">List Transaksi</a>
           </li>
         </ul>
       </div>
@@ -59,7 +62,9 @@ $result=mysqli_query($conn,$query);
         <h5 class="card-title"><?= $row['name']?></h5>
         <h6 class="card-subtitle mb-2 text-body-secondary">Rp. <?= number_format($row['price'], 2) ?></h6>
         <p class="card-text"><?= $row['description']?></p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="editmenu.php?edit=<?= $row['id_menu']?>" class="btn btn-primary">Edit</a>
+        <a href="proces.php?hapus=<?= $row['id_menu']?>" class="btn btn-danger">Hapus</a>
+
       </div>
     </div>
     <?php }?>
