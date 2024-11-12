@@ -19,7 +19,7 @@ $result = mysqli_query($conn, $sql);
 <body>
 <div class="container mt-5">
     <h2 class="text-center mb-4">Pilih Menu</h2>
-    <form method="post">
+    <form action="" method="post">
         <div class="row">
             <?php while($row = $result->fetch_assoc()): ?>
                 <div class="col-md-4 mb-4">
@@ -70,7 +70,6 @@ $result = mysqli_query($conn, $sql);
 
         if ($pesanan_terpilih) {
             echo "<strong>Total: Rp " . number_format($total) . "</strong>";
-
             $query = "INSERT INTO orders (total_amount) VALUES ('$total')";
             if (mysqli_query($conn, $query)) {
                 $order_id = mysqli_insert_id($conn);

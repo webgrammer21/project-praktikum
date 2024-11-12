@@ -71,7 +71,7 @@
 					<p class="symbol"> &#10059; </p>
 					<p>Nikmati beragam menu pilihan yang menggugah selera, mulai dari hidangan klasik hingga kreasi unik.
 					Setiap hidangan kami dirancang untuk memberi pengalaman kuliner istimewa, dipadu dengan racikan kopi terbaik yang membuat momen santai Anda semakin berkesan. </p>
-					<h2><a href="#"> View the full menu </a></h2>
+					<h2><a href="public/listmenu.php"> View the full menu </a></h2>
 				</div>
 			</section>
 			
@@ -139,7 +139,7 @@
 			<div class="copyright_container">
 				<div id="copyright">
 						<div> 
-							<p> Copyright 2024 &copy; Handcrafted with love by <a href="#">imamkhusain </a> </p>
+							<p> Copyright 2024 &copy; Handcrafted with love by <a href="#">imamkhusain</a> </p>
 							<p> Editor By Informatics23 &copy; </p>
 						</div>			
 				</div>
