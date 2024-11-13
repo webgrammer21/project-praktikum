@@ -1,10 +1,6 @@
 <?php
 require_once '../koneksi.php';
 
-if (!$conn) {
-    die("Koneksi ke database gagal: " . mysqli_connect_error());
-}
-
 $sql = "SELECT * FROM menu";
 $result = mysqli_query($conn, $sql);
 ?>
@@ -19,7 +15,7 @@ $result = mysqli_query($conn, $sql);
 <body>
 <div class="container mt-5">
     <h2 class="text-center mb-4">Pilih Menu</h2>
-    <form action="" method="post">
+    <form action="konfirmasi_pesanan.php" method="post">
         <div class="row">
             <?php while($row = $result->fetch_assoc()): ?>
                 <div class="col-md-4 mb-4">
@@ -37,65 +33,8 @@ $result = mysqli_query($conn, $sql);
                 </div>
             <?php endwhile; ?>
         </div>
-        <button type="submit" name="submit_order" class="btn btn-primary mt-4">Pesan</button>
+        <button type="submit" name="confirm_order" class="btn btn-primary mt-4">Pesan</button>
     </form>
-
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_order'])) {
-        $total = 0;
-        $pesanan_terpilih = false;
-        $order_items = [];
-
-        echo "<h2 class='mt-4'>Pesanan Anda</h2>";
-
-        foreach ($_POST['jumlah'] as $id => $jumlah) {
-            $jumlah = (int)$jumlah;
-            if ($jumlah > 0) {
-                $nama = $_POST['nama'][$id];
-                $harga = (float)$_POST['harga'][$id];
-                $subtotal = $jumlah * $harga;
-
-                $order_items[] = [
-                    'menu_id' => $id,
-                    'quantity' => $jumlah,
-                    'price' => $harga,
-                    'subtotal' => $subtotal
-                ];
-
-                echo "<p>$nama ($jumlah porsi) = Rp " . number_format($subtotal) . "</p>";
-                $total += $subtotal;
-                $pesanan_terpilih = true;
-            }
-        }
-
-        if ($pesanan_terpilih) {
-            echo "<strong>Total: Rp " . number_format($total) . "</strong>";
-            $query = "INSERT INTO orders (total_amount) VALUES ('$total')";
-            if (mysqli_query($conn, $query)) {
-                $order_id = mysqli_insert_id($conn);
-
-                foreach ($order_items as $item) {
-                    $menu_id = $item['menu_id'];
-                    $quantity = $item['quantity'];
-                    $price = $item['price'];
-                    $subtotal = $item['subtotal'];
-                    
-                    $item_query = "INSERT INTO order_detail (id_order, id_menu, quantity, price, subtotal) 
-                                   VALUES ('$order_id', '$menu_id', '$quantity', '$price', '$subtotal')";
-                    if (!mysqli_query($conn, $item_query)) {
-                        echo "<p class='text-danger mt-3'>Error pada query order_items: " . mysqli_error($conn) . "</p>";
-                    }
-                }
-
-                echo "<p class='text-success mt-3'>Pesanan berhasil disimpan!</p>";
-            } else {
-                echo "<p class='text-danger mt-3'>Error pada query orders: " . mysqli_error($conn) . "</p>";
-            }
-        } else {
-            echo "<p>Anda belum memilih menu apa pun.</p>";
-        }
-    }
-    ?>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
