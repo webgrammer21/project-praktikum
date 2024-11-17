@@ -2,6 +2,11 @@
 
 include '../koneksi.php';
 
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../formLogin/index.php?pesan=belum_login");
+    exit();
+}
 $query= "SELECT * FROM menu";
 
 $result=mysqli_query($conn,$query);
@@ -45,7 +50,10 @@ $result=mysqli_query($conn,$query);
             <a class="nav-link" aria-current="page" href="tambah_menu.php">Tambah Menu</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">List Transaksi</a>
+            <a class="nav-link" href="list_transaksi.php">List Transaksi</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="logout.php">Logout</a>
           </li>
         </ul>
       </div>

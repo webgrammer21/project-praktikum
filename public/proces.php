@@ -41,9 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         // Check if all inserts succeeded
         if ($success) {
-            echo "<p class='text-success'>Pesanan berhasil disimpan! Terima kasih, $customer_name.</p>";
+            // echo "<p class='text-success'>Pesanan berhasil disimpan! Terima kasih, $customer_name.</p>";
             // Clear session data
             unset($_SESSION['order_items'], $_SESSION['total']);
+            header("Location: last.php");
         } else {
             echo "<p class='text-danger'>Terjadi kesalahan saat menyimpan detail pesanan. Silakan coba lagi.</p>";
         }

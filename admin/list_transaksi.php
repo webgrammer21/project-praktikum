@@ -1,8 +1,17 @@
 <?php 
 include '../koneksi.php';
-$query = "SELECT * FROM orders";
+
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../formLogin/index.php?pesan=belum_login");
+    exit();
+}
+
+$query = "SELECT * FROM orders ORDER BY order_date DESC";
 $data = mysqli_query($conn, $query);
 // $order= mysqli_fetch_array($data);
+
+
 ?>
 
 

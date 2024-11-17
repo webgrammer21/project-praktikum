@@ -1,5 +1,9 @@
 <?php 
-
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../formLogin/index.php?pesan=belum_login");
+    exit();
+}
 
 ?>
 
@@ -52,6 +56,7 @@
       <option selected>Pilih Kategori</option>
       <option value="1">Makanan</option>
       <option value="2">Minuman</option>
+      <option value="3">Snack</option>
     </select>
   </div>
   <div class="mb-3">

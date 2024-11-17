@@ -1,6 +1,12 @@
 <?php 
 include '../koneksi.php';
 
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../formLogin/index.php?pesan=belum_login");
+    exit();
+}
+
 $id= $_GET['edit'];
 $query= "SELECT * FROM menu where id_menu = $id ";
 $data=  mysqli_query($conn, $query);
@@ -23,8 +29,6 @@ $row = mysqli_fetch_array($data)
         <h5 class="card-title"><?= $row['name']?></h5>
         <h6 class="card-subtitle mb-2 text-body-secondary">Rp. <?= number_format($row['price'], 2) ?></h6>
         <p class="card-text"><?= $row['description']?></p>
-        <a href="editmenu.php?edit=<?= $row['id_menu']?>" class="btn btn-primary">Edit</a>
-        <a href="#" class="btn btn-danger">Hapus</a>
       </div>
     </div>
 

@@ -6,18 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    Nama Pemesan: <br>
-    No.HP : <br>
-    Jenis Pembayaran: <br>
-    Notes: <br>
-
-    <br>
-    <br>
-    <br>
-    List Pesanan: <br>
-    1x Nasi Goreng
-
-
-
+    
+<center>
+    <h1>Makasih Telah Memesan Wok SKRNNG PULANGGGGG</h1>
+</center>
 </body>
 </html>

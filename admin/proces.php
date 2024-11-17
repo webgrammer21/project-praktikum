@@ -1,6 +1,12 @@
 <?php 
 include '../koneksi.php';
 
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../formLogin/index.php?pesan=belum_login");
+    exit();
+}
+
 //Insert Proces
 if (isset($_POST["submitinsert"])) {
 
