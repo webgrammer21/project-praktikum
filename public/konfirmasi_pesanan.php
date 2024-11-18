@@ -38,38 +38,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm_order'])) {
 </head>
 <body>
 <div class="container mt-5">
-    <h2>Konfirmasi Pesanan</h2>
-    <div class="order-summary">
-        <?php foreach ($order_items as $item): ?>
-            <p><?php echo $item['name']; ?> (<?php echo $item['quantity']; ?> pcs) = Rp <?php echo number_format($item['subtotal']); ?></p>
-        <?php endforeach; ?>
-        <p><strong>Total: Rp <?php echo number_format($total); ?></strong></p>
-    </div>
+    <h2 class="mb-4 text-center">Konfirmasi Pesanan</h2>
+    <div class="row">
+        <!-- Daftar Pesanan -->
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h4 class="card-title mb-3">Daftar Pesanan</h4>
+                    <?php foreach ($order_items as $item): ?>
+                        <p><?= $item['quantity']; ?>x <?= $item['name']; ?> = <strong>Rp <?= number_format($item['subtotal']); ?></strong></p>
+                    <?php endforeach; ?>
+                    <hr>
+                    <p><strong>Total: Rp <?= number_format($total); ?></strong></p>
+                </div>
+            </div>
+        </div>
 
-    <!-- Customer Details and Payment Type Form -->
-    <form action="proces.php" method="post">
-        <div class="mb-3">
-            <label for="customer_name" class="form-label">Nama Pemesan</label>
-            <input type="text" name="customer_name" id="customer_name" class="form-control" required>
+        <!-- Formulir Pemesanan -->
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h4 class="card-title mb-3">Detail Pemesanan</h4>
+                    <form action="proces.php" method="post">
+                        <div class="mb-3">
+                            <label for="customer_name" class="form-label">Nama Pemesan</label>
+                            <input type="text" name="customer_name" id="customer_name" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">No HP</label>
+                            <input type="text" name="phone" id="phone" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="notes" class="form-label">Catatan</label>
+                            <textarea name="notes" id="notes" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="payment_type" class="form-label">Jenis Pembayaran</label>
+                            <select name="payment_type" id="payment_type" class="form-select" required>
+                                <option value="Cash">Cash</option>
+                                <option value="Credit Card">Kartu Kredit</option>
+                                <option value="Bank Transfer">Transfer Bank</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Konfirmasi dan Pesan</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="phone" class="form-label">No HP</label>
-            <input type="text" name="phone" id="phone" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label for="notes" class="form-label">Catatan</label>
-            <textarea name="notes" id="notes" class="form-control"></textarea>
-        </div>
-        <div class="mb-3">
-            <label for="payment_type" class="form-label">Jenis Pembayaran</label>
-            <select name="payment_type" id="payment_type" class="form-select" required>
-                <option value="Cash">Cash</option>
-                <option value="Credit Card">Kartu Kredit</option>
-                <option value="Bank Transfer">Transfer Bank</option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Konfirmasi dan Pesan</button>
-    </form>
+    </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

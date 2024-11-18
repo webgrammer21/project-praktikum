@@ -24,13 +24,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Insert each order item into `order_detail` table
         $success = true;
         foreach ($order_items as $item) {
-            $menu_id = $item['id_menu'];
+            $nama_menu = $item['name'];
             $quantity = $item['quantity'];
             $price = $item['price'];
             $subtotal = $item['subtotal'];
 
-            $item_query = "INSERT INTO order_detail (id_order, id_menu, quantity, price, subtotal) 
-                           VALUES ('$order_id', '$menu_id', '$quantity', '$price', '$subtotal')";
+            $item_query = "INSERT INTO order_detail (id_order, nama_menu, quantity, price, subtotal) 
+                           VALUES ('$order_id', '$nama_menu', '$quantity', '$price', '$subtotal')";
 
             if (!mysqli_query($conn, $item_query)) {
                 $success = false;
