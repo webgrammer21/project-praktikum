@@ -65,6 +65,7 @@ if (!isset($_SESSION['user_id'])) {
                         <option value="1">Makanan</option>
                         <option value="2">Minuman</option>
                         <option value="3">Snack</option>
+                        <option value="4">Dessert</option>
                     </select>
                 </div>
                 <div class="mb-3">
