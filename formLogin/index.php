@@ -42,12 +42,10 @@ if (isset($_POST['submit'])) {
                 
                 <?php if($_GET['pesan']=='gagal'){
                     echo "<h6>Username Atau Password Salah</h6>";
-                }?>
-            <?php if($_GET['pesan']=='logout'){
+                } if($_GET['pesan']=='logout'){
                 
                 echo "<h6>Berhasil Logout</h6>";
-            }?>
-            <?php if($_GET['pesan']=='belum_login'){
+            } if($_GET['pesan']=='belum_login'){
                 echo "<h6>Silahkan Login Terlebih Dahulu</h6>";
             }?>
             </center>
