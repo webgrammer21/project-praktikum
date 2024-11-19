@@ -106,9 +106,8 @@ if (isset($_POST['submitedit'])) {
 
 // Delete Proces
 if (isset($_GET['hapus'])){
+    
     $id = $_GET['hapus'];  
-
-
     $query = "DELETE FROM menu WHERE id_menu = '$id'";
 
     if(mysqli_query($conn,$query)){

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../koneksi.php';
+include '../koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve order data from session
@@ -8,10 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $total = isset($_SESSION['total']) ? $_SESSION['total'] : 0;
 
     // Retrieve customer data from form submission
-    $customer_name = mysqli_real_escape_string($conn, $_POST['customer_name']);
-    $phone = mysqli_real_escape_string($conn, $_POST['phone']);
-    $notes = mysqli_real_escape_string($conn, $_POST['notes']);
-    $payment_type = mysqli_real_escape_string($conn, $_POST['payment_type']);
+    $customer_name =  $_POST['customer_name'];
+    $phone = $_POST['phone'];
+    $notes =$_POST['notes'];
+    $payment_type = $_POST['payment_type'];
 
     // Insert order data into `orders` table
     $order_query = "INSERT INTO orders (nama_pemesan, no_hp, notes, jenis_pembayaran, total_amount) 

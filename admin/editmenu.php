@@ -57,6 +57,8 @@ $row = mysqli_fetch_array($data);
                                 <option disabled>Pilih Kategori</option>
                                 <option value="1" <?= $row['category_id'] == 1 ? 'selected' : '' ?>>Makanan</option>
                                 <option value="2" <?= $row['category_id'] == 2 ? 'selected' : '' ?>>Minuman</option>
+                                <option value="3" <?= $row['category_id'] == 3 ? 'selected' : '' ?>>Snack</option>
+
                             </select>
                         </div>
                         <div class="mb-3">

@@ -13,7 +13,7 @@
 		<header id="go_to_top">
 			<div class="gradient">
 				<div class="container">
-					<h2 id="logo"><a href="index.html"> SIGMA LATTE </a></h2>
+					<h2 id="logo"><a href=" "> SIGMA LATTE </a></h2>
 					<img id="open_menu" class="menu_icon show" src="../assets/img/menu.png" >
 					<img id="close_menu" class="menu_icon" src="../assets/img/x.png" >
 					<nav>
@@ -105,28 +105,28 @@
 			</div>
 			<div id="info" class="breakpoint">
 				<div id="locations">
-					<h2> Locations </h2>
+					<h2> Lokasi </h2>
 					<div  class="address_container">
 						<div class="address1">
-							<p> 376 Van Brunt St </p>
-							<p> Brooklyn, NY — 11231 </p>
+							<p> Jl. Padjajaran Jl. Ring Road Utara No.104 </p>
+							<p> Daerah Istimewa Yogyakarta 55283 </p>
 						</div>
 						<div class="address2">
-							<p> 25 Union Square West </p>
-							<p> New York, NY — 10003 </p>
+							<p> JL. Babarsari 2 </p>
+							<p>  Sleman, Yogyakarta 55281 </p>
 						</div>
 					</div>
 				</div>
 				
 				<div id="hours">
-					<h2> Hours </h2>
+					<h2> Jam Operasi </h2>
 					<div class="open_container">
 						<div class="open">
-							<p> Monday - Friday </p>
+							<p> Senin - Jum`at </p>
 							<p> 9:30am - 11:00pm </p>
 						</div>	
 						<div class="open">
-							<p> Saturday & Sunday </p>
+							<p> Sabtu & Minggu </p>
 							<p> 9:30am - 00:00pm </p>
 						</div>
 						<div class="open">
@@ -136,10 +136,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="copyright_container">
+			<div class=" copyright_container">
 				<div id="copyright">
 						<div> 
-							<p> Copyright 2024 &copy; Handcrafted with love by <a href="#">imamkhusain</a> </p>
+							<p> Copyright 2024 &copy; Handcrafted with love by Imam Khusain & Salman Faris </p>
 							<p> Editor By Informatics23 &copy; </p>
 						</div>			
 				</div>
