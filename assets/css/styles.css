@@ -78,7 +78,6 @@ nav a.active {
 	z-index: 5;
 }
 
-/* Hamburger Menu (continued in the media queries section) */
 
 .menu_icon {
 	display: none;
@@ -331,41 +330,3 @@ main section:nth-of-type(4) {
 	align-items: center;
 }
 
-.dot {
-	padding: 0 10px;
-	font-size: 20px;
-}
-
-#top {
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	position: absolute;
-	left: 50%;
-	top: -25px;
-	transform: translateX(-50%);
-	background-color: #fff;
-	color: #0e131c;
-	line-height: normal;
-	text-align: center;
-	font-weight: bold;
-	text-transform: uppercase;
-	cursor: pointer;
-}
-
-#top p {
-	font-size: 12px;
-}
-
-#top a {
-	color: #0e131c;
-}
-
-p#arrow {
-	transform: rotate(90deg);
-	font-size: 18px;
-}
-
-.address1 {
-	padding-right: 30px;
-}

@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once '../koneksi.php';
+include '../koneksi.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm_order'])) {
+if (isset($_POST['confirm_order'])) {
     $total = 0;
     $order_items = [];
 
@@ -23,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm_order'])) {
         }
     }
 
-    // Store order data in session for the next step
     $_SESSION['order_items'] = $order_items;
     $_SESSION['total'] = $total;
 }
@@ -60,16 +59,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm_order'])) {
             padding: 30px 40px;
         }
         .card {
-            background-color: rgba(255, 255, 255, 0.5); /* Transparan */
-            backdrop-filter: blur(10px); /* Blur untuk efek */
-            border: none; /* Hilangkan border default */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan */
+            background-color: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px); 
+            border: none; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
         }
         .card-title {
-            color: #333; /* Warna teks pada judul */
+            color: #333;
         }
         .form-control, .form-select {
-            background-color: rgba(255, 255, 255, 0.7); /* Transparansi pada input */
+            background-color: rgba(255, 255, 255, 0.7);
         }
         .btn-primary {
             background-color: #007bff;
@@ -121,7 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm_order'])) {
                                 <option value="Bank Transfer">Transfer Bank</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100">Konfirmasi dan Pesan</button>
+                        <button type="submit" name="confirm"class="btn btn-primary w-100">Konfirmasi dan Pesan</button>
                     </form>
                 </div>
             </div>

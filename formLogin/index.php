@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
 <body>
     <div class="wrapper">
         <form action="index.php" method="post">
-            <h1>LOGIN</h1>
+            <h1>LOGIN ADMIN</h1>
             <center>
                 
                 <?php if($_GET['pesan']=='gagal'){
@@ -58,15 +58,8 @@ if (isset($_POST['submit'])) {
                 <i class='bx bxs-lock-alt'></i>
             </div>
             
-            <div class="remember-forgot">
-                <label><input type="checkbox"> Remember Me?</label>
-                <a href="#">Forgot Password?</a>
-            </div>
-
             <button type="submit" name="submit" class="btn">Login</button>
-            <div class="register-link">
-                <p>Don't have an account? <a href="#">Register</a></p>
-            </div>
+           
     </div>
 </body>
 </html>

@@ -20,7 +20,7 @@
 						<a href="#go_to_top" class="menu_link active"> Welcome </a>
 						<a href="#about" class="menu_link"> About </a>
 						<a href="#menu" class="menu_link"> Menu </a>
-						<a href="#info" class="menu_link"> Contact </a>
+						<a href="#info" class="menu_link"> Info </a>
 						<a href="formLogin/index.php">
 							<button class="btn btn-warning" type="button">LOGIN</button></a>
 					</nav>
@@ -49,7 +49,7 @@
 						Nikmati momen terbaik bersama teman dan keluarga di Sigma Café. </p>
 				</div>
 				<div class="img_container">
-					<img src="./assets/img/ruangan.jpg" title="Stuffed tomatoes" alt="Stuffed tomatoes"> 
+					<img src="./assets/img/ruangan.jpg"  alt="ruangan"> 
 				</div>
 			</section>
 			
@@ -89,20 +89,15 @@
 						menjadikan setiap momen makan sebagai perjalanan rasa yang penuh kenikmatan. </p>
 				</div>
 				<div class="img_container">
-					<img src="./assets/img/meat.jpg" title="Meat and cheese" alt="Sandwiches image"> 
-					<img src="./assets/img/sandwiches.jpg" title="Sandwiches" alt="Sandwiches image">
+					<img src="./assets/img/meat.jpg"   alt="Sandwiches image"> 
+					<img src="./assets/img/sandwiches.jpg" alt="Sandwiches image">
 				</div>			
 			</section>
 						
 		</main>
 		
 		<footer>
-			<div id="top"> 
-				<a href="#go_to_top" class="menu_link">
-					<p id="arrow"> &lsaquo; </p>
-					<p>  Top </p>
-				</a>
-			</div>
+
 			<div id="info" class="breakpoint">
 				<div id="locations">
 					<h2> Lokasi </h2>
@@ -122,7 +117,7 @@
 					<h2> Jam Operasi </h2>
 					<div class="open_container">
 						<div class="open">
-							<p> Senin - Jum`at </p>
+							<p> Senin - Jum'at </p>
 							<p> 9:30am - 11:00pm </p>
 						</div>	
 						<div class="open">
@@ -130,8 +125,8 @@
 							<p> 9:30am - 00:00pm </p>
 						</div>
 						<div class="open">
-							<p> Available for private </p>
-							<p> events on End of Mounth </p>
+							<p> Rasakan Enaknya  </p>
+							<p> Sampai Jadi Sigma </p>
 						</div>
 					</div>
 				</div>

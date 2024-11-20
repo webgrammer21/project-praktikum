@@ -1,5 +1,5 @@
 <?php
-require_once '../koneksi.php';
+include '../koneksi.php';
 
 $sql = "SELECT * FROM menu where category_id = 1";
 $sql2 = "SELECT * FROM menu where category_id = 2";
@@ -56,7 +56,7 @@ $result4 = mysqli_query($conn, $sql4);
 </head>
 <body>
 <!-- Navbar -->
-    <nav style="background-color: #333; color: white; padding: 10px; text-align: center;">
+    <nav style="background-color: #0e131c; color: white; padding: 2px; text-align: center; border-bottom: 1px solid #d3a261; ">
         <h1 style="color: rgb(255, 255, 255);">WELCOME TO SIGMA MENU</h1>
         <nav>
             <ul style="list-style-type: none; padding: 0;">
@@ -64,6 +64,7 @@ $result4 = mysqli_query($conn, $sql4);
                 <li style="display: inline-block; margin-right: 10px;"><a href="#Minuman" style="color: #fff; text-decoration: none;">Minuman</a></li>
                 <li style="display: inline-block; margin-right: 10px;"><a href="#Dessert" style="color: #fff; text-decoration: none;">Dessert</a></li>
                 <li style="display: inline-block; margin-right: 10px;"><a href="#Snack" style="color: #fff; text-decoration: none;">Snack</a></li>
+                <li style="display: inline-block; margin-right: 10px;"><a href="../" style="color: #fff; text-decoration: none;">Home</a></li>
             </ul>
         </nav>
     </nav>
@@ -75,7 +76,7 @@ $result4 = mysqli_query($conn, $sql4);
     <form action="konfirmasi_pesanan.php" method="post" class="form-container">
         <div class="row mb-5" id="Makanan">
             <h3 class="">Makanan</h3>
-            <?php while($row = $result->fetch_assoc()): ?>
+            <?php while($row = mysqli_fetch_array($result)): ?>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
                         <img src="../assets/img/<?php echo $row['image']; ?>" class="card-img-top" alt="<?php echo $row['name']; ?>">
@@ -98,7 +99,7 @@ $result4 = mysqli_query($conn, $sql4);
 
         <div class="row mb-5" id="Minuman">
             <h3 class="">Minuman</h3>
-            <?php while($row = $result2->fetch_assoc()): ?>
+            <?php while($row = mysqli_fetch_array($result2)): ?>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
                         <img src="../assets/img/<?php echo $row['image']; ?>" class="card-img-top" alt="<?php echo $row['name']; ?>">
@@ -121,7 +122,7 @@ $result4 = mysqli_query($conn, $sql4);
 
         <div class="row mb-5" id="Dessert">
             <h3 class="">Dessert</h3>
-            <?php while($row = $result4->fetch_assoc()): ?>
+            <?php while($row = mysqli_fetch_array($result4)): ?>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
                         <img src="../assets/img/<?php echo $row['image']; ?>" class="card-img-top" alt="<?php echo $row['name']; ?>">
@@ -145,7 +146,7 @@ $result4 = mysqli_query($conn, $sql4);
 
         <div class="row mb-5" id="Snack">
             <h3 class="">Snack</h3>
-            <?php while($row = $result3->fetch_assoc()): ?>
+            <?php while($row = mysqli_fetch_array($result3)): ?>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
                         <img src="../assets/img/<?php echo $row['image']; ?>" class="card-img-top" alt="<?php echo $row['name']; ?>">
