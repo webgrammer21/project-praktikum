@@ -30,9 +30,9 @@ $row = mysqli_fetch_array($data);
             <div class="card shadow">
                 <img src="../assets/img/<?= $row['image'] ?>" class="card-img-top" alt="Gambar Makanan">
                 <div class="card-body">
-                    <h5 class="card-title"><?= htmlspecialchars($row['name']) ?></h5>
+                    <h5 class="card-title"><?= ($row['name']) ?></h5>
                     <h6 class="card-subtitle mb-2 text-muted">Rp <?= number_format($row['price'], 2) ?></h6>
-                    <p class="card-text"><?= htmlspecialchars($row['description']) ?></p>
+                    <p class="card-text"><?= ($row['description']) ?></p>
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@ $row = mysqli_fetch_array($data);
                         <input type="hidden" name="id_menu" value="<?= $row['id_menu'] ?>">
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Menu</label>
-                            <input type="text" class="form-control" name="nama" id="nama" value="<?= htmlspecialchars($row['name']) ?>" required>
+                            <input type="text" class="form-control" name="nama" id="nama" value="<?= ($row['name']) ?>" required>
                         </div>
                         <div class="mb-3">
                             <label for="harga" class="form-label">Harga</label>
@@ -63,7 +63,7 @@ $row = mysqli_fetch_array($data);
                         </div>
                         <div class="mb-3">
                             <label for="deskripsi" class="form-label">Deskripsi</label>
-                            <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3" required><?= htmlspecialchars($row['description']) ?></textarea>
+                            <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3" required><?= ($row['description']) ?></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="image" class="form-label">Upload Gambar</label>

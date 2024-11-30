@@ -20,7 +20,6 @@ $eror= $_FILES['image']['error'] = 0;
 $file_name = $_FILES['image']['name'];  // Nama file
 $temp_name = $_FILES['image']['tmp_name'];  // Lokasi file sementara
 $folder = '../assets/img/' . $file_name;  // Lokasi tujuan file   
-// Cek apakah file berhasil diupload sebelum menyimpan ke database
 if (move_uploaded_file($temp_name, $folder)) {
     // Jika file berhasil diupload, masukkan data ke database
     $query = "INSERT INTO menu (name, description, price, category_id, image) VALUES
@@ -80,8 +79,8 @@ if (isset($_POST['submitedit'])) {
 
     // Penanganan upload file
     $error = $_FILES['image']['error'];
-    $file_name = $_FILES['image']['name'];
-    $temp_name = $_FILES['image']['tmp_name'];
+    $file_name = $_FILES['image']['name']; //Nama file
+    $temp_name = $_FILES['image']['tmp_name']; //Lokasi File Sementara
     $folder = '../assets/img/' . $file_name;
 
     // Cek apakah file berhasil diupload sebelum menyimpan ke database
@@ -89,11 +88,10 @@ if (isset($_POST['submitedit'])) {
         // Jika file berhasil diupload, update data termasuk gambar
         $query = "UPDATE menu SET name = '$name', price = '$harga', description = '$deskripsi', category_id = '$kategori', image = '$file_name' WHERE id_menu = '$id'";
     } else {
-        // Jika tidak ada file diupload atau terjadi error, update data tanpa mengubah gambar
+        // Jika tidak ada file diupload 
         $query = "UPDATE menu SET name = '$name', price = '$harga', description = '$deskripsi', category_id = '$kategori' WHERE id_menu = '$id'";
     }
 
-    // Eksekusi query
     if (mysqli_query($conn, $query)) {   
         // Redirect jika sukses
         header("Location: index.php?edit=editsukses");

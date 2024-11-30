@@ -41,7 +41,6 @@ function getDistanceFromDocumentTop(elem) {
 }
 
 function getBreakPoints() {
-	//if resize is done, we need to empty our distances array before setting new breakpoints!!!
 	SCROLL_DISTANCES.length = 0; 
 	
     BRK_POINTS.forEach(elem => {
@@ -68,21 +67,17 @@ function activateMenuOnScroll() {
     let scrollDistance = window.pageYOffset;
     let scrollLength = scrollDistance + window.innerHeight;
 	let totalHeight = document.body.offsetHeight;
-	//get height of menu when fixed to the top:
 	let navHeight = document.querySelector("header .container").offsetHeight;
-	let section = document.getElementsByTagName("section")[0]; // all sections have the same margin-top
+	let section = document.getElementsByTagName("section")[0];
 	let sectionStyles = section.currentStyle || window.getComputedStyle(section);
 	let margin = parseInt(sectionStyles.marginTop.replace(/[^0-9]/g, ""), 10);
 
     cleanUpMenu();
     
   if (scrollDistance < SCROLL_DISTANCES[0].position - navHeight - margin || scrollDistance === 0) {
-        //Activate Welcome when scrolled to the top/ clicked on Welcome menu item
         LINKS[0].classList.add("active");
         return;
     }  else if (scrollLength >= totalHeight) {
-        //Activate Reservations in menu when scrolled to the bottom of page (because we do not have a contact page section yet)
-		// This might seem useless at first, but there are cases in which, for certain sizes of the screen, the breakpoint of the Reservations section is never scrolled passed, so the tab needs to be activated forcefully.
         LINKS[LINKS.length - 3].classList.add("active");
         return;
     }
@@ -99,6 +94,5 @@ function activateMenuOnScroll() {
 }
 
 window.addEventListener("scroll", debounce(fixMenu));
-window.addEventListener("resize", debounce(getBreakPoints, 500));
+// window.addEventListener("resize", debounce(getBreakPoints, 500));
 window.addEventListener("scroll", debounce(activateMenuOnScroll));
-

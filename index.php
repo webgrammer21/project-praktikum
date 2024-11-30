@@ -134,7 +134,7 @@
 			<div class=" copyright_container">
 				<div id="copyright">
 						<div> 
-							<p> Copyright 2024 &copy; Handcrafted with love by Imam Khusain & Salman Faris </p>
+							<p> Copyright 2024 &copy; Dibuat Dengan Tulus(anjay) by Imam Khusain & Salman Faris </p>
 							<p> Editor By Informatics23 &copy; </p>
 						</div>			
 				</div>

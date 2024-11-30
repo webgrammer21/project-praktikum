@@ -9,7 +9,7 @@ if (isset($_POST['confirm_order'])) {
     foreach ($_POST['jumlah'] as $id => $jumlah) {
         if ((int)$jumlah > 0) {
             $nama = $_POST['nama'][$id];
-            $harga = (float)$_POST['harga'][$id];
+            $harga = $_POST['harga'][$id];
             $subtotal = $jumlah * $harga;
 
             $order_items[] = [

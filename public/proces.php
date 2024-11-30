@@ -3,25 +3,22 @@ session_start();
 include '../koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve order data from session
+    // Mengambil Data Dari session
     $order_items = isset($_SESSION['order_items']) ? $_SESSION['order_items'] : [];
     $total = isset($_SESSION['total']) ? $_SESSION['total'] : 0;
 
-    // Retrieve customer data from form submission
+    // Mengambil data customer
     $customer_name =  $_POST['customer_name'];
     $phone = $_POST['phone'];
     $notes =$_POST['notes'];
     $payment_type = $_POST['payment_type'];
 
-    // Insert order data into `orders` table
     $order_query = "INSERT INTO orders (nama_pemesan, no_hp, notes, jenis_pembayaran, total_amount) 
                     VALUES ('$customer_name', '$phone', '$notes', '$payment_type', '$total')";
 
     if (mysqli_query($conn, $order_query)) {
-        // Get the generated order ID
-        $order_id = mysqli_insert_id($conn);
+        $order_id = mysqli_insert_id($conn);//buat mengambil order_id dari data yang terakhir di masukin dari table orders
 
-        // Insert each order item into `order_detail` table
         $success = true;
         foreach ($order_items as $item) {
             $nama_menu = $item['name'];
@@ -39,7 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
         
-        // Check if all inserts succeeded
         if ($success) {
             // echo "<p class='text-success'>Pesanan berhasil disimpan! Terima kasih, $customer_name.</p>";
             // Clear session data
@@ -49,11 +45,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "<p class='text-danger'>Terjadi kesalahan saat menyimpan detail pesanan. Silakan coba lagi.</p>";
         }
     } else {
-        echo "<p class='text-danger'>Error inserting order: " . mysqli_error($conn) . "</p>";
+        echo "<p class='text-danger'>Error Memasukan order: " . mysqli_error($conn) . "</p>";
     }
 } else {
-    echo "<p class='text-danger'>Invalid request.</p>";
+    echo "<p class='text-danger'>Invalid lek.</p>";
 }
 
-mysqli_close($conn);
 ?>
